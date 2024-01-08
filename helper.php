@@ -7,8 +7,12 @@ function dd( $value ) {
     exit;
 }
 
-function isCurrentURI( $value ) {
-    return $_SERVER['REQUEST_URI'] == $value;
+function getCurrentURIPath() {
+    return parse_url($_SERVER['REQUEST_URI'])['path'];
+}
+
+function isCurrentURI( $values ) {
+    return in_array( getCurrentURIPath() , $values );
 }
 
 function abort( $code = 404) {
