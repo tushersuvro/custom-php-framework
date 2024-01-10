@@ -8,6 +8,8 @@ $routes = [
     '/services' => 'controllers/services.php',
     '/videos' => 'controllers/videos.php',
     '/video' => 'controllers/video.php',
+    '/register' => 'controllers/register.php',
+    '/register/store' => 'controllers/register_store.php',
 ];
 
 routeToController( $uri , $routes );

@@ -9,6 +9,7 @@
                 <li class="nav-item <?= isCurrentURI(['/services']) ? 'active' : '' ?>"><a class="nav-link" href="/services">Services</a></li>
                 <li class="nav-item <?= isCurrentURI(['/videos','/video']) ? 'active' : '' ?>"><a class="nav-link" href="/videos">Videos</a></li>
                 <li class="nav-item "><a class="nav-link" href="/contact.html">Contact</a></li>
+                <li class="nav-item "><a class="nav-link" href="/register">Register</a></li>
             </ul>
         </div>
     </div>
