@@ -25,7 +25,7 @@ if ( !$user ) {
 }
 
 // redirect user
-header('location: /');
+header('location: /dashboard');
 exit();
 
 

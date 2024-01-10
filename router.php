@@ -10,6 +10,7 @@ $routes = [
     '/video' => 'controllers/video.php',
     '/register' => 'controllers/register.php',
     '/register/store' => 'controllers/register_store.php',
+    '/dashboard' => 'controllers/dashboard.php',
 ];
 
 routeToController( $uri , $routes );

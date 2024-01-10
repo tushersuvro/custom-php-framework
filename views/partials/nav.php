@@ -10,7 +10,7 @@
                 <li class="nav-item <?= isCurrentURI(['/videos','/video']) ? 'active' : '' ?>"><a class="nav-link" href="/videos">Videos</a></li>
                 <li class="nav-item "><a class="nav-link" href="/contact.html">Contact</a></li>
                 <?php if ($_SESSION['user'] ?? false) : ?>
-                <li class="nav-item "><a class="nav-link" href="/register">Dashboard</a></li>
+                <li class="nav-item "><a class="nav-link" href="/dashboard">Dashboard</a></li>
                 <?php else: ?>
                     <li class="nav-item "><a class="nav-link" href="/register">Register</a></li>
                 <?php endif; ?>
