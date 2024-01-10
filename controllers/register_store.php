@@ -18,8 +18,14 @@ if ( !$user ) {
     // if user not found then create / save user in database,
     $db->query('INSERT INTO users(name, email, password) VALUES( ?, ?, ?)', [ $name, $email, $password ]);
 
+    // marking a user has logged in
+    $_SESSION['user'] = [
+        'email' => $email
+    ];
 }
+
 // redirect user
 header('location: /');
 exit();
+
 
