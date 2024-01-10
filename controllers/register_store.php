@@ -20,7 +20,8 @@ if ( !$user ) {
 
     // marking a user has logged in
     $_SESSION['user'] = [
-        'email' => $email
+        'email' => $email,
+        'name' => $name
     ];
 
     // keeping session alive even browser is closed.. expire duration is 1 year
