@@ -1,4 +1,7 @@
 <IfModule mod_rewrite.c>
+    # disabling directory listing to avoid unnecessary misuse
+    Options All -Indexes
+
     RewriteEngine On
     RewriteBase /
 
@@ -6,6 +9,6 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
 
-    # Rewrite all other requests to the index.php
+    # Rewrite all other requests to the home.php
     RewriteRule ^ index.php [QSA,L]
 </IfModule>

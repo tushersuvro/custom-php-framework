@@ -3,7 +3,7 @@
 $uri = getCurrentURIPath(); //dd($uri);
 
 $routes = [
-    '/' => 'index',
+    '/' => 'home',
     '/about' => 'about',
     '/services' => 'services',
     '/videos' => 'videos/index',
