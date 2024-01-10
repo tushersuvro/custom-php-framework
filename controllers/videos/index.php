@@ -10,4 +10,5 @@ $header = "All Videos"; //dd($welcome);
 
 //dd($videos);
 
-view('videos', compact( 'header' , 'videos' ) );
+view('videos/index', compact( 'header' , 'videos' ) );
+

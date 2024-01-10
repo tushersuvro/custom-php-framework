@@ -12,4 +12,4 @@ $header = $video['title']; //dd($welcome);
 
 //dd($videos);
 
-view('video', compact( 'header' , 'video' ) );
+view('videos/show', compact( 'header' , 'video' ) );

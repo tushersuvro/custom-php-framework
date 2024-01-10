@@ -6,14 +6,14 @@ $routes = [
     '/' => 'index',
     '/about' => 'about',
     '/services' => 'services',
-    '/videos' => 'videos',
-    '/video' => 'video',
-    '/register' => 'register',
-    '/register/store' => 'register_store',
-    '/dashboard' => 'dashboard',
-    '/login' => 'login',
-    '/session/create' => 'session_store',
-    '/logout' => 'session_destroy',
+    '/videos' => 'videos/index',
+    '/video' => 'videos/show',
+    '/register' => 'registration/create',
+    '/register/store' => 'registration/store',
+    '/dashboard' => 'users/dashboard',
+    '/login' => 'session/create',
+    '/session/create' => 'session/store',
+    '/logout' => 'session/destroy',
 ];
 
 routeToController( $uri , $routes );

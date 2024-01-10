@@ -22,4 +22,4 @@ if ($user) {
     }
 }
 
-view('login');
+view('session/create');
