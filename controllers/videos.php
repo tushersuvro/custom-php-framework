@@ -10,4 +10,4 @@ $header = "All Videos"; //dd($welcome);
 
 //dd($videos);
 
-require BASE_PATH . 'views/videos.view.php';
+view('videos', compact( 'header' , 'videos' ) );
