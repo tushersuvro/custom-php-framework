@@ -7,7 +7,9 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item <?= isCurrentURI(['/about']) ? 'active' : '' ?>"><a class="nav-link" href="/about">About</a></li>
                 <li class="nav-item <?= isCurrentURI(['/services']) ? 'active' : '' ?>"><a class="nav-link" href="/services">Services</a></li>
+                <?php if ($_SESSION['user'] ?? false) : ?>
                 <li class="nav-item <?= isCurrentURI(['/videos','/video']) ? 'active' : '' ?>"><a class="nav-link" href="/videos">Videos</a></li>
+                <?php endif; ?>
                 <li class="nav-item "><a class="nav-link" href="/contact.html">Contact</a></li>
                 <?php if ($_SESSION['user'] ?? false) : ?>
                 <li class="nav-item "><a class="nav-link" href="/dashboard"><?= $_SESSION['user']['name'] ?></a></li>

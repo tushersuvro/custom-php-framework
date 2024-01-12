@@ -20,16 +20,22 @@ if ( !$user ) {
 
     // marking a user has logged in
     $_SESSION['user'] = [
+        'id' => $db->getLastInsertId(),
         'email' => $email,
         'name' => $name
     ];
 
     // keeping session alive even browser is closed.. expire duration is 1 year
     setcookie( session_name(), session_id(), time() + 365*24*3600 );
+
+    // redirect user
+    header('location: /videos');
+
+} else {
+    // redirect user
+    header('location: /');
 }
 
-// redirect user
-header('location: /dashboard');
-exit();
+exit;
 
 

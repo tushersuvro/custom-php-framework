@@ -13,11 +13,12 @@ if ($user) {
     if ( $password === $user['password']) {
 
         $_SESSION['user'] = [
+            'id' => $user['id'],
             'email' => $user['email'],
             'name' => $user['name']
         ];
 
-        header('location: /dashboard');
+        header('location: /videos');
         exit();
     }
 }

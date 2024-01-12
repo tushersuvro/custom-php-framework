@@ -6,11 +6,12 @@
 <!-- Page Content-->
 <section class="py-5">
     <div class="container">
-        <h1 class="mb-4"><?= $header ?></h1>
+        <h1 class="mb-4 float-left"><?= $header ?></h1> <a class="btn btn-primary btn-sm ml-2 mt-3" href="/videos/create">Add Video</a>
+        <div class="clearfix"></div>
         <!-- Marketing Icons Section-->
         <div class="row">
             <?php foreach( $videos as $video ) : ?>
-            <div class="col-lg-4 mb-4 mb-lg-0">
+            <div class="col-lg-4 mt-2 mb-lg-4">
                 <div class="card h-100">
                     <h4 class="card-header"><?= $video['title'] ?></h4>
                     <div class="card-body"><p class="card-text"><?= $video['description'] ?></p></div>

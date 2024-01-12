@@ -11,6 +11,8 @@
             <div class="col-md-5">
                 <h3 class="my-3"><?= $video['title'] ?></h3>
                 <p><?= $video['description'] ?></p>
+                <a class="btn btn-primary btn-sm" href="/videos/edit?id=<?= $video['id'] ?>">Edit</a> &nbsp;
+                <a class="btn btn-danger btn-sm" href="/videos/delete?id=<?= $video['id'] ?>">Delete</a>
             </div>
         </div>
     </div>
