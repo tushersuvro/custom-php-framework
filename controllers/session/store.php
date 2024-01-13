@@ -7,7 +7,7 @@ $db = new Database();
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$user = $db->query('select * from users where email = ? ', [ $email ])->fetch();
+$user = $db->query('select * from users where email = ? ', [ $email ])->find();
 
 if ($user) {
     if ( $password === $user['password']) {

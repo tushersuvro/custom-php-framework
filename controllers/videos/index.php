@@ -4,7 +4,9 @@ require BASE_PATH . 'Database.php';
 
 $db = new Database();
 
-$videos = $db->query( "select * from videos where user_id = ?" , [ $_SESSION['user']['id'] ] )->fetchAll();
+authorize( isset($_SESSION['user']) , 401 );
+
+$videos = $db->query( "select * from videos where user_id = ?" , [ $_SESSION['user']['id'] ] )->get();
 
 $header = "All Videos"; //dd($welcome);
 

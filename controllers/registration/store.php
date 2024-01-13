@@ -8,11 +8,7 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$user = $db->query('select * from users where email = :email', [
-    'email' => $email
-])->fetch();
-
-//dd($user);
+$user = $db->query('select * from users where email = ?', [ $email ] )->find();
 
 if ( !$user ) {
     // if user not found then create / save user in database,
@@ -24,9 +20,6 @@ if ( !$user ) {
         'email' => $email,
         'name' => $name
     ];
-
-    // keeping session alive even browser is closed.. expire duration is 1 year
-    setcookie( session_name(), session_id(), time() + 365*24*3600 );
 
     // redirect user
     header('location: /videos');

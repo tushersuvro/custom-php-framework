@@ -6,16 +6,16 @@
     <div class="container">
         <!-- Page Heading/Breadcrumbs-->
         <h1>
-            404
-            <small>Page Not Found</small>
+            401
+            <small>Unauthorized Page access</small>
         </h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active">404</li>
+            <li class="breadcrumb-item active">401</li>
         </ol>
         <div class="jumbotron">
-            <h2 class="display-2">404</h2>
-            <p>The page you're looking for could not be found. Here are some helpful links to get you back on track:</p>
+            <h2 class="display-2">401</h2>
+            <p>The page you're looking for needs login for your access:</p>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>

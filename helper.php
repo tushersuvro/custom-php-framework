@@ -33,3 +33,9 @@ function view( $file, $variables = [] ) {
     extract($variables );
     require BASE_PATH . 'views/' .$file.'.view.php';
 }
+
+function authorize( $condition , $code = 403 ) {
+    if (! $condition) {
+        abort( $code );
+    }
+}

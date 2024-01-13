@@ -5,7 +5,7 @@ require BASE_PATH . 'Database.php';
 
 $db = new Database();
 
-$video = $db->query('select * from videos where id = ? ', [ $_GET['id'] ])->fetch();
+$video = $db->query('select * from videos where id = ? ', [ $_GET['id'] ])->find();
 
 $heading = 'Edit Video';
 
