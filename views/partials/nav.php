@@ -13,7 +13,10 @@
                 <li class="nav-item "><a class="nav-link" href="/contact.html">Contact</a></li>
                 <?php if ($_SESSION['user'] ?? false) : ?>
                 <li class="nav-item "><a class="nav-link" href="/dashboard"><?= $_SESSION['user']['name'] ?></a></li>
-                <li class="nav-item "><a class="nav-link" href="/logout">Logout</a></li>
+                <li class="nav-item ">
+                    <form method="POST" action="/logout">
+                        <button class="btn nav-link">Log Out</button>
+                    </form>
                 <?php else: ?>
                     <li class="nav-item <?= isCurrentURI(['/register']) ? 'active' : '' ?>"><a class="nav-link" href="/register">Register</a></li>
                     <li class="nav-item <?= isCurrentURI(['/login']) ? 'active' : '' ?>"><a class="nav-link" href="/login">Login</a></li>
