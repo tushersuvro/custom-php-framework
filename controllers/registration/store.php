@@ -31,7 +31,7 @@ $user = $db->query('select * from users where email = ?', [ $email ] )->find();
 
 if ( !$user ) {
     // if user not found then create / save user in database,
-    $db->query('INSERT INTO users(name, email, password) VALUES( ?, ?, ?)', [ $name, $email, $password ]);
+    $db->query('INSERT INTO users(name, email, password) VALUES( ?, ?, ?)', [ $name, $email, password_hash($password, PASSWORD_BCRYPT) ]);
 
     // marking a user has logged in
     $_SESSION['user'] = [

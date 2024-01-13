@@ -22,10 +22,10 @@ if (! empty($errors)) {
     exit;
 }
 
-$user = $db->query('select * from users where email = ? ', [ $email ])->find();
+$user = $db->query('select * from users where email = ? ', [ $email ])->find(); //dd($user);
 
 if ($user) {
-    if ( $password === $user['password']) {
+    if ( password_verify( $password, $user['password'] ) ) {
 
         $_SESSION['user'] = [
             'id' => $user['id'],
@@ -38,4 +38,8 @@ if ($user) {
     }
 }
 
-view('session/create');
+view('session/create' , [
+    'errors' => [
+        'email' => 'No matching account found for that email address and password.'
+    ]
+]);
