@@ -17,13 +17,15 @@
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label>Email Address:</label>
-                                <input required class="form-control" id="email" name="email" type="email"/>
+                                <input required class="form-control" id="email" name="email" value="<?= $_POST['email'] ?? '' ?>" type="email"/>
+                                <p class="help-block text-danger small"><?= ( $errors['email'] ) ?? '' ?></p>
                             </div>
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label>Password:</label>
                                 <input required class="form-control" id="password" name="password" type="password" />
+                                <p class="help-block text-danger small"><?= ( $errors['password'] ) ?? '' ?></p>
                             </div>
                         </div>
                         <div id="success"></div>
