@@ -12,7 +12,11 @@ require 'helper.php';
 require 'Validator.php';
 
 // dd($_SERVER);
+//
+require BASE_PATH . 'Core/Router.php';
 require 'router.php';
+
+
 
 unset($_SESSION['flash']);
 

@@ -2,27 +2,30 @@
 
 $uri = getCurrentURIPath(); //dd($uri);
 
-$routes = [
-    '/' => 'home',
-    '/about' => 'about',
-    '/services' => 'services',
+Router::get('/', 'home');
+Router::get('/about', 'about');
+Router::get('/services', 'services');
 
-    '/videos' => 'videos/index',
-    '/video' => 'videos/show',
-    '/videos/create' => 'videos/create',
-    '/videos/store' => 'videos/store',
-    '/videos/edit' => 'videos/edit',
-    '/videos/update' => 'videos/update',
-    '/videos/delete' => 'videos/destroy',
+Router::get('/dashboard', 'users/dashboard');
 
-    '/register' => 'registration/create',
-    '/register/store' => 'registration/store',
+Router::get('/videos', 'videos/index');
+Router::get('/video', 'videos/show');
+Router::delete('/video', 'videos/destroy');
 
-    '/dashboard' => 'users/dashboard',
+Router::get('/videos/create', 'videos/create');
+Router::post('/videos/store', 'videos/store');
 
-    '/login' => 'session/create',
-    '/session/create' => 'session/store',
-    '/logout' => 'session/destroy',
-];
+Router::get('/video/edit', 'videos/edit');
+Router::patch('/video', 'videos/update');
 
-routeToController( $uri , $routes );
+Router::get('/register', 'registration/create');
+Router::post('/register', 'registration/store');
+
+Router::get('/login', 'session/create');
+Router::post('/login', 'session/store');
+
+Router::delete('/logout', 'session/destroy');
+
+
+
+Router::route( $uri , $_POST['_method'] ?? $_SERVER['REQUEST_METHOD']);

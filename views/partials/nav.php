@@ -8,13 +8,14 @@
                 <li class="nav-item <?= isCurrentURI(['/about']) ? 'active' : '' ?>"><a class="nav-link" href="/about">About</a></li>
                 <li class="nav-item <?= isCurrentURI(['/services']) ? 'active' : '' ?>"><a class="nav-link" href="/services">Services</a></li>
                 <?php if ($_SESSION['user'] ?? false) : ?>
-                <li class="nav-item <?= isCurrentURI(['/videos','/video']) ? 'active' : '' ?>"><a class="nav-link" href="/videos">Videos</a></li>
+                <li class="nav-item <?= isCurrentURI(['/videos','/video','/video/edit']) ? 'active' : '' ?>"><a class="nav-link" href="/videos">Videos</a></li>
                 <?php endif; ?>
                 <li class="nav-item "><a class="nav-link" href="/contact.html">Contact</a></li>
                 <?php if ($_SESSION['user'] ?? false) : ?>
                 <li class="nav-item "><a class="nav-link" href="/dashboard"><?= $_SESSION['user']['name'] ?></a></li>
                 <li class="nav-item ">
                     <form method="POST" action="/logout">
+                        <input type="hidden" name="_method" value="DELETE">
                         <button class="btn nav-link">Log Out</button>
                     </form>
                 <?php else: ?>

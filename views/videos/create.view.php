@@ -31,7 +31,7 @@
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label for="embed">embed url:</label>
-                                <input id="embed" name="embed" type="text" value="<?= htmlspecialchars($_SESSION['flash']['old']['embed']) ?? '' ?>" required class="form-control" >
+                                <input id="embed" name="embed" type="text" value="<?= isset($_SESSION['flash']['old']['embed']) ? htmlspecialchars($_SESSION['flash']['old']['embed']) : '' ?>" required class="form-control" >
                                 <p class="help-block text-danger small"><?= ( $errors['embed'] ) ?? '' ?></p>
                             </div>
                         </div>

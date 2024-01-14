@@ -31,12 +31,12 @@ if ( !isValidEmbed( $embed) ) {
 
 if (! empty($errors)) {
     $_SESSION['flash']['errors'] = $errors;
-    redirect('/videos/edit?id='.$video['id']);
+    redirect('/video/edit?id='.$video['id']);
 }
 
 $db->query('UPDATE videos set title = ?, description = ? , embed = ? where id = ? and user_id = ?', [
     $_POST['title'], $_POST['description'], $_POST['embed'], $_POST['id'] , $_SESSION['user']['id']
 ]);
 
-redirect('/videos/edit?id='.$video['id']);
+redirect('/video/edit?id='.$video['id']);
     

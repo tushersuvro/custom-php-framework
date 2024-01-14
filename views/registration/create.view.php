@@ -13,7 +13,7 @@
                 <h1 class="mb-4">
                     Register
                 </h1>
-                <form id="contactForm" name="sentMessage" action="/register/store" method="POST" novalidate>
+                <form id="contactForm" name="sentMessage" action="/register" method="POST" novalidate>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label for="name">Name:</label>

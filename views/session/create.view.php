@@ -13,7 +13,7 @@
                     <h1 class="mb-4">
                         Login
                     </h1>
-                    <form id="contactForm" name="sentMessage" action="/session/create" method="POST" novalidate>
+                    <form id="contactForm" name="sentMessage" action="/login" method="POST" novalidate>
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label>Email Address:</label>

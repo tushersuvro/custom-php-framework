@@ -13,7 +13,8 @@
                     <h1 class="mb-4">
                         Edit Video
                     </h1>
-                    <form id="contactForm" name="storeVideo" action="/videos/update" method="POST" novalidate>
+                    <form id="contactForm" name="storeVideo" action="/video" method="POST" novalidate>
+                        <input type="hidden" name="_method" value="PATCH">
                         <input type="hidden" value="<?= $video['id'] ?>" name="id">
                         <div class="control-group form-group">
                             <div class="controls">
