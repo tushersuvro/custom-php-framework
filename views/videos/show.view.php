@@ -11,8 +11,11 @@
             <div class="col-md-5">
                 <h3 class="my-3"><?= $video['title'] ?></h3>
                 <p><?= $video['description'] ?></p>
-                <a class="btn btn-primary btn-sm" href="/videos/edit?id=<?= $video['id'] ?>">Edit</a> &nbsp;
-                <a class="btn btn-danger btn-sm" href="/videos/delete?id=<?= $video['id'] ?>">Delete</a>
+                <a class="btn btn-primary btn-sm float-left" href="/videos/edit?id=<?= $video['id'] ?>">Edit</a> &nbsp;
+                <form method="POST" action="/videos/delete" class="float-left ml-2">
+                    <input type="hidden" value="<?= $video['id'] ?>" name="id" >
+                    <button class="btn btn-danger btn-sm">Delete</button>
+                </form>
             </div>
         </div>
     </div>
