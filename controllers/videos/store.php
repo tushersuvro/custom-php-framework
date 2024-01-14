@@ -6,9 +6,9 @@ require BASE_PATH . 'Database.php';
 
 $db = new Database();
 
-$title = $_POST['title'];
-$description= $_POST['description'];
-$embed = $_POST['embed'];
+$_SESSION['flash']['old']['title'] = $title = $_POST['title'];
+$_SESSION['flash']['old']['description'] = $description= $_POST['description'];
+$_SESSION['flash']['old']['embed'] = $embed = $_POST['embed'];
 
 $errors = [];
 
@@ -34,6 +34,5 @@ $db->query('INSERT INTO videos( user_id, title, description, embed ) VALUES( ? ,
     [ $_SESSION['user']['id'] , $title, $description, $embed ]
 );
 
-header('location: /videos');
-exit;
+redirect('/videos');
     

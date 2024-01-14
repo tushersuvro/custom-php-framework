@@ -4,7 +4,7 @@ require BASE_PATH . 'Database.php';
 
 $db = new Database();
 
-$email = $_POST['email'];
+$_SESSION['flash']['old']['email'] = $email = $_POST['email'];
 $password = $_POST['password'];
 
 $errors = [];

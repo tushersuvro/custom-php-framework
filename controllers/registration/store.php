@@ -4,8 +4,8 @@ require BASE_PATH . 'Database.php';
 
 $db = new Database();
 
-$name = $_POST['name'];
-$email = $_POST['email'];
+$_SESSION['flash']['old']['name'] = $name = $_POST['name'];
+$_SESSION['flash']['old']['email'] = $email = $_POST['email'];
 $password = $_POST['password'];
 
 $errors = [];
@@ -15,7 +15,7 @@ if ( !string( $name,  1, 255) ) {
 }
 
 if ( !email($email) ) {
-    $errors['email'] = 'Valid Email is required';
+     $errors['email'] = 'Valid Email is required';
 }
 
 if ( !string( $password,  3, 255) ) {

@@ -38,6 +38,5 @@ $db->query('UPDATE videos set title = ?, description = ? , embed = ? where id = 
     $_POST['title'], $_POST['description'], $_POST['embed'], $_POST['id'] , $_SESSION['user']['id']
 ]);
 
-header('location: /video?id='.$_POST['id']);
-exit;
+redirect('/videos/edit?id='.$video['id']);
     
