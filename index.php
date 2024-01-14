@@ -14,3 +14,5 @@ require 'Validator.php';
 // dd($_SERVER);
 require 'router.php';
 
+unset($_SESSION['flash']);
+

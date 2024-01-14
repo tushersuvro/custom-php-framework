@@ -18,8 +18,8 @@ if ( !string( $password,  3, 255) ) {
 }
 
 if (! empty($errors)) {
-    view('session/create', compact( 'errors') );
-    exit;
+    $_SESSION['flash']['errors'] = $errors;
+    redirect('/login');
 }
 
 $user = $db->query('select * from users where email = ? ', [ $email ])->find(); //dd($user);
@@ -33,13 +33,12 @@ if ($user) {
             'name' => $user['name']
         ];
 
-        header('location: /videos');
-        exit();
+        redirect('/videos');
     }
 }
 
-view('session/create' , [
-    'errors' => [
-        'email' => 'No matching account found for that email address and password.'
-    ]
-]);
+
+$errors['email'] = 'No matching account found for that email address and password.';
+$_SESSION['flash']['errors'] = $errors;
+
+redirect('/login');

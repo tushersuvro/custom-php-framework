@@ -39,3 +39,9 @@ function authorize( $condition , $code = 403 ) {
         abort( $code );
     }
 }
+
+function redirect($path)
+{
+    header("location: {$path}");
+    exit();
+}

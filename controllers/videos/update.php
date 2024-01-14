@@ -10,7 +10,7 @@ $title = $_POST['title'];
 $description= $_POST['description'];
 $embed = $_POST['embed'];
 
-// find the corresponding note
+// find the corresponding video
 $video = $db->query('select * from videos where id = ?', [ $_POST['id'] ] )->findOrFail();
 
 authorize(isset($_SESSION['user']) && ($video['user_id'] === $_SESSION['user']['id']) );
@@ -30,11 +30,10 @@ if ( !isValidEmbed( $embed) ) {
 }
 
 if (! empty($errors)) {
-    view('videos/edit', compact( 'errors', 'video' ) );
-    exit;
+    $_SESSION['flash']['errors'] = $errors;
+    redirect('/videos/edit?id='.$video['id']);
 }
 
-// if user not found then create / save user in database,
 $db->query('UPDATE videos set title = ?, description = ? , embed = ? where id = ? and user_id = ?', [
     $_POST['title'], $_POST['description'], $_POST['embed'], $_POST['id'] , $_SESSION['user']['id']
 ]);

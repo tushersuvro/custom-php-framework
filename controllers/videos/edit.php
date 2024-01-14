@@ -15,4 +15,6 @@ $video = $db->query('select * from videos where id = ? ', [ $_GET['id'] ])->find
 
 authorize( $video['user_id'] == $_SESSION['user']['id'] );
 
-view('videos/edit' , compact(  'video' ) );
+$errors = $_SESSION['flash']['errors'] ?? [];
+
+view('videos/edit' , compact(  'video' , 'errors' ) );

@@ -23,8 +23,10 @@ if ( !string( $password,  3, 255) ) {
 }
 
 if (! empty($errors)) {
-    view('registration/create', compact( 'errors') );
-    exit;
+
+    $_SESSION['flash']['errors'] = $errors;
+
+    redirect('/register');
 }
 
 $user = $db->query('select * from users where email = ?', [ $email ] )->find();
@@ -41,13 +43,13 @@ if ( !$user ) {
     ];
 
     // redirect user
-    header('location: /videos');
+    redirect('/videos');
 
 } else {
     // redirect user
-    header('location: /');
+    $errors['email'] = 'Email already exists in database.';
+    $_SESSION['flash']['errors'] = $errors;
+
+    redirect('/register');
 }
-
-exit;
-
 

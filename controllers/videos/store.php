@@ -25,8 +25,8 @@ if ( !isValidEmbed( $embed) ) {
 }
 
 if (! empty($errors)) {
-    view('videos/create', compact( 'errors') );
-    exit;
+    $_SESSION['flash']['errors'] = $errors;
+    redirect('/videos/create');
 }
 
 // saving video to database
