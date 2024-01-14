@@ -11,26 +11,28 @@
                 <div class="col-lg-8">
                     <!-- Page Heading/Breadcrumbs-->
                     <h1 class="mb-4">
-                        <?= $heading ?>
+                        Add Video
                     </h1>
-                    <form id="contactForm" name="storeVideo" action="/videos/store" method="POST">
+                    <form id="contactForm" name="storeVideo" action="/videos/store" method="POST" novalidate>
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label for="title">Title:</label>
-                                <input id="title" name="title" type="text" value="" required class="form-control" >
-                                <p class="help-block"></p>
+                                <input id="title" name="title" type="text" value="<?= $_POST['title'] ?? '' ?>" required class="form-control" >
+                                <p class="help-block text-danger small"><?= ( $errors['title'] ) ?? '' ?></p>
                             </div>
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label for="description">Description:</label>
-                                <textarea name="description" id="description" class="form-control" required></textarea>
+                                <textarea name="description" id="description"  class="form-control" required ><?= $_POST['description'] ?? '' ?></textarea>
+                                <p class="help-block text-danger small"><?= ( $errors['description'] ) ?? '' ?></p>
                             </div>
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label for="embed">embed url:</label>
-                                <input id="embed" name="embed" type="text" value="" required class="form-control" >
+                                <input id="embed" name="embed" type="text" value="<?= isset($_POST['embed']) ? htmlspecialchars($_POST['embed']) : '' ?>" required class="form-control" >
+                                <p class="help-block text-danger small"><?= ( $errors['embed'] ) ?? '' ?></p>
                             </div>
                         </div>
                         <div id="success"></div>

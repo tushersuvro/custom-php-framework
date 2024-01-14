@@ -11,3 +11,14 @@ function email($value)
 {
     return filter_var($value, FILTER_VALIDATE_EMAIL);
 }
+
+function isValidURL($value)
+{
+    return filter_var($value, FILTER_VALIDATE_URL);
+}
+
+function isValidEmbed( $embed )
+{
+    $pattern = '/<iframe[^>]*><\/iframe>/';
+    return preg_match($pattern, $embed) === 1;
+}
