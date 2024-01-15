@@ -6,9 +6,14 @@ require BASE_PATH . 'Database.php';
 
 $db = new Database();
 
-$_SESSION['flash']['old']['title'] = $title = $_POST['title'];
-$_SESSION['flash']['old']['description'] = $description= $_POST['description'];
-$_SESSION['flash']['old']['embed'] = $embed = $_POST['embed'];
+$title = $_POST['title'];
+$description= $_POST['description'];
+$embed = $_POST['embed'];
+
+set_old( 'title' , $title );
+set_old( 'description' , $description );
+set_old( 'embed' , $embed );
+
 
 $errors = [];
 

@@ -4,9 +4,12 @@ require BASE_PATH . 'Database.php';
 
 $db = new Database();
 
-$_SESSION['flash']['old']['name'] = $name = $_POST['name'];
-$_SESSION['flash']['old']['email'] = $email = $_POST['email'];
+$name = $_POST['name'];
+$email = $_POST['email'];
 $password = $_POST['password'];
+
+set_old( 'name' , $name );
+set_old( 'email' , $email );
 
 $errors = [];
 
