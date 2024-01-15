@@ -10,6 +10,7 @@ define("WEB_ROOT", "{$_SERVER['REQUEST_SCHEME']}://{$_SERVER['SERVER_NAME']}/");
 
 require 'helper.php';
 require 'Validator.php';
+require 'Session.php';
 
 // dd($_SERVER);
 //

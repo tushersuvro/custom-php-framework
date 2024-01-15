@@ -31,25 +31,23 @@ if (! empty($errors)) {
 
 $user = $db->query('select * from users where email = ?', [ $email ] )->find();
 
-if ( !$user ) {
-    // if user not found then create / save user in database,
-    $db->query('INSERT INTO users(name, email, password) VALUES( ?, ?, ?)', [ $name, $email, password_hash($password, PASSWORD_BCRYPT) ]);
-
-    // marking a user has logged in
-    $_SESSION['user'] = [
-        'id' => $db->getLastInsertId(),
-        'email' => $email,
-        'name' => $name
-    ];
-
-    // redirect user
-    redirect('/videos');
-
-} else {
-    // redirect user
+if( $user ) {
     $errors['email'] = 'Email already exists in database.';
     $_SESSION['flash']['errors'] = $errors;
 
     redirect('/register');
 }
+
+// if user not found then create / save user in database,
+$db->query('INSERT INTO users(name, email, password) VALUES( ?, ?, ?)', [ $name, $email, password_hash($password, PASSWORD_BCRYPT) ]);
+
+// marking a user has logged in
+$_SESSION['user'] = [
+    'id' => $db->getLastInsertId(),
+    'email' => $email,
+    'name' => $name
+];
+
+// redirect user
+redirect('/videos');
 

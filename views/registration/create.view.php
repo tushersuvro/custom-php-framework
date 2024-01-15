@@ -17,14 +17,14 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label for="name">Name:</label>
-                            <input id="name" name="name" type="text" value="<?= $_SESSION['flash']['old']['name'] ?? '' ?>" required class="form-control" >
+                            <input id="name" name="name" type="text" value="<?= old('name') ?>" required class="form-control" >
                             <p class="help-block text-danger small"><?= ( $errors['name'] ) ?? '' ?></p>
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Email Address:</label>
-                            <input required class="form-control" id="email" name="email" value="<?= $_SESSION['flash']['old']['email'] ?? '' ?>" type="email"/>
+                            <input required class="form-control" id="email" name="email" value="<?= old('email') ?>" type="email"/>
                             <p class="help-block text-danger small"><?= ( $errors['email'] ) ?? '' ?></p>
                         </div>
                     </div>

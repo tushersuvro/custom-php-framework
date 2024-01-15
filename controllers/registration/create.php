@@ -1,5 +1,5 @@
 <?php
-
+//dd($_SESSION);
 view('registration/create' , [
-    'errors' => $_SESSION['flash']['errors'] ?? []
+    'errors' => flashed_errors()
 ]);
