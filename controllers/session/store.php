@@ -11,11 +11,11 @@ set_old( 'email' , $name );
 
 $errors = [];
 
-if ( !email($email) ) {
+if ( !Validator::email($email) ) {
     $errors['email'] = 'Valid Email is required';
 }
 
-if ( !string( $password,  3, 255) ) {
+if ( !Validator::string( $password,  3, 255) ) {
     $errors['password'] = 'Password needs to be at least three characters long';
 }
 

@@ -15,15 +15,15 @@ authorize(isset($_SESSION['user']) && ($video['user_id'] === $_SESSION['user']['
 
 $errors = [];
 
-if ( !string( $title,  1, 255) ) {
+if ( !Validator::string( $title,  1, 255) ) {
     $errors['title'] = 'Title is required';
 }
 
-if ( !string( $description,  50, 255) ) {
+if ( !Validator::string( $description,  50, 255) ) {
     $errors['description'] = 'Description needs to be at least 50 characters long';
 }
 
-if ( !isValidEmbed( $embed) ) {
+if ( !Validator::isValidEmbed( $embed) ) {
     $errors['embed'] = 'Embed needs to be valid';
 }
 

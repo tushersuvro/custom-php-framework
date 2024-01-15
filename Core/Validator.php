@@ -1,24 +1,29 @@
 <?php
 
-function string($value, $min = 1, $max = INF)
+Class Validator
 {
-    $value = trim($value);
 
-    return strlen($value) >= $min && strlen($value) <= $max;
-}
+    public static function string($value, $min = 1, $max = INF)
+    {
+        $value = trim($value);
 
-function email($value)
-{
-    return filter_var($value, FILTER_VALIDATE_EMAIL);
-}
+        return strlen($value) >= $min && strlen($value) <= $max;
+    }
 
-function isValidURL($value)
-{
-    return filter_var($value, FILTER_VALIDATE_URL);
-}
+    public static function email($value)
+    {
+        return filter_var($value, FILTER_VALIDATE_EMAIL);
+    }
 
-function isValidEmbed( $embed )
-{
-    $pattern = '/<iframe[^>]*><\/iframe>/';
-    return preg_match($pattern, $embed) === 1;
+    public static function isValidURL($value)
+    {
+        return filter_var($value, FILTER_VALIDATE_URL);
+    }
+
+    public static function isValidEmbed($embed)
+    {
+        $pattern = '/<iframe[^>]*><\/iframe>/';
+        return preg_match($pattern, $embed) === 1;
+    }
+
 }
