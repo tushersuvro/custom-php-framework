@@ -1,5 +1,7 @@
 <?php
 
+use Core\Database;
+
 $db = new Database();
 
 authorize( isset($_SESSION['user']) , 401 );

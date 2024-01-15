@@ -1,5 +1,8 @@
 <?php
 
+
+use Core\Database;
+
 $db = new Database();
 
 $video = $db->query('select * from videos where id = ?', [ $_POST['id'] ] )->findOrFail();
@@ -10,5 +13,4 @@ authorize( isset($_SESSION['user']) && ( $video['user_id'] == $_SESSION['user'][
 
 $db->query('delete from videos where id = ?', [ $video['id'] ]);
 
-header('location: /videos');
-exit();
+redirect('/videos');

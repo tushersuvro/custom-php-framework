@@ -1,5 +1,9 @@
 <?php
 
+use Core\Database;
+use Core\Session;
+use Core\Validator;
+
 $db = new Database();
 
 $name = $_POST['name'];

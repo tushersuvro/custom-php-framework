@@ -2,6 +2,10 @@
 
 //dd('inside store');
 
+use Core\Database;
+use Core\Session;
+use Core\Validator;
+
 $db = new Database();
 
 $title = $_POST['title'];

@@ -1,6 +1,9 @@
 <?php
 
 //dd('inside edit');
+use Core\Database;
+use Core\Session;
+
 $db = new Database();
 
 authorize( isset($_SESSION['user']) , 401 );

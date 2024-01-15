@@ -6,6 +6,8 @@
 // 3. if user tries to browse the page omitting qyery string
 // 4. if user is not logged in then page browsing is not allowed
 
+use Core\Database;
+
 $db = new Database();
 
 authorize( isset($_SESSION['user']) , 401 );

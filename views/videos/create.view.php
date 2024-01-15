@@ -1,4 +1,8 @@
-<?php require BASE_PATH . 'views/partials/header.php' ?>
+<?php
+
+use Core\Session;
+
+require BASE_PATH . 'views/partials/header.php' ?>
 <?php require BASE_PATH . 'views/partials/nav.php' ?>
 
     <!-- Page Content-->
