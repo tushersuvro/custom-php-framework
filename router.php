@@ -1,5 +1,8 @@
 <?php
 
+//define function along with a check for a specific constant in PHP files
+defined('BASE_PATH') OR exit('No direct script access allowed');
+
 $uri = getCurrentURIPath(); //dd($uri);
 
 Router::get('/', 'home');
