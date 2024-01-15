@@ -1,7 +1,5 @@
 <?php
 
-require BASE_PATH . 'Database.php';
-
 $db = new Database();
 
 $name = $_POST['name'];

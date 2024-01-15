@@ -1,7 +1,5 @@
 <?php
 
-require BASE_PATH . 'Database.php';
-
 $db = new Database();
 
 authorize( isset($_SESSION['user']) , 401 );

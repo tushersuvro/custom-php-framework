@@ -1,7 +1,5 @@
 <?php
 
-require BASE_PATH . 'Database.php';
-
 $db = new Database();
 
 $video = $db->query('select * from videos where id = ?', [ $_POST['id'] ] )->findOrFail();

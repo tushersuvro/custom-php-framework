@@ -8,12 +8,11 @@ session_start();
 const BASE_PATH = __DIR__ .'/';
 define("WEB_ROOT", "{$_SERVER['REQUEST_SCHEME']}://{$_SERVER['SERVER_NAME']}/");
 
-require 'helper.php';
-require 'Validator.php';
-require 'Session.php';
+require BASE_PATH . 'Core/helper.php';
+require BASE_PATH . 'Core/Validator.php';
+require BASE_PATH .'Core/Session.php';
+require BASE_PATH .'Core/Database.php';
 
-// dd($_SERVER);
-//
 require BASE_PATH . 'Core/Router.php';
 require 'router.php';
 

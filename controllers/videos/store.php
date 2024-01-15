@@ -2,8 +2,6 @@
 
 //dd('inside store');
 
-require BASE_PATH . 'Database.php';
-
 $db = new Database();
 
 $title = $_POST['title'];
