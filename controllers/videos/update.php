@@ -28,7 +28,8 @@ if ( !Validator::isValidEmbed( $embed) ) {
 }
 
 if (! empty($errors)) {
-    $_SESSION['flash']['errors'] = $errors;
+    Session::flash( 'errors' , $errors);
+
     redirect('/video/edit?id='.$video['id']);
 }
 

@@ -8,10 +8,7 @@ $title = $_POST['title'];
 $description= $_POST['description'];
 $embed = $_POST['embed'];
 
-set_old( 'title' , $title );
-set_old( 'description' , $description );
-set_old( 'embed' , $embed );
-
+Session::flash( 'old', ['title' => $title , 'description' => $description , 'embed' => $embed ] );
 
 $errors = [];
 
@@ -28,7 +25,8 @@ if ( !Validator::isValidEmbed( $embed) ) {
 }
 
 if (! empty($errors)) {
-    $_SESSION['flash']['errors'] = $errors;
+    Session::flash( 'errors', $errors );
+
     redirect('/videos/create');
 }
 

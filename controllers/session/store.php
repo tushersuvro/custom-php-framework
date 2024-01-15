@@ -1,13 +1,11 @@
 <?php
 
-require BASE_PATH . 'Database.php';
-
 $db = new Database();
 
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-set_old( 'email' , $name );
+Session::flash('old', [ 'email' => $email ]);
 
 $errors = [];
 
@@ -20,7 +18,8 @@ if ( !Validator::string( $password,  3, 255) ) {
 }
 
 if (! empty($errors)) {
-    $_SESSION['flash']['errors'] = $errors;
+    Session::flash('errors', $errors );
+
     redirect('/login');
 }
 

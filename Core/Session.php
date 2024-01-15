@@ -1,14 +1,29 @@
 <?php
 
-function set_old( $key, $value ) {
-    $_SESSION['flash']['old'][$key] = $value;
-}
+class Session
+{
+    public static function flash($key, $value)
+    {
+        $_SESSION['flash'][$key] = $value;
+    }
 
-function old( $data , $escape = false ) {
-    if( $escape && isset($_SESSION['flash']['old'][$data]) ) $_SESSION['flash']['old'][$data] = htmlspecialchars($_SESSION['flash']['old'][$data]);
-    return $_SESSION['flash']['old'][$data] ?? '';
-}
+    public static function unflash() {
+        unset($_SESSION['flash']);
+    }
 
-function flashed_errors() {
-    return $_SESSION['flash']['errors'] ?? [];
+    public static function get($key , $default = null)
+    {
+        // checking if flash key is used to show errors
+        if( isset($_SESSION['flash'][$key]) ) {
+            return $_SESSION['flash'][$key];
+        }
+        // else return top level session key value
+        return $_SESSION[$key] ?? $default;
+    }
+
+    public static function old($data, $escape = false)
+    {
+        if ($escape && isset($_SESSION['flash']['old'][$data])) $_SESSION['flash']['old'][$data] = htmlspecialchars($_SESSION['flash']['old'][$data]);
+        return $_SESSION['flash']['old'][$data] ?? '';
+    }
 }

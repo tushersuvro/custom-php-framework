@@ -1,5 +1,5 @@
 <?php
 
 view('session/create' , [
-    'errors' => flashed_errors()
+    'errors' => Session::get('errors')
 ]);

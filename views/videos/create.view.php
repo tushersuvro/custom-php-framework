@@ -17,21 +17,21 @@
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label for="title">Title:</label>
-                                <input id="title" name="title" type="text" value="<?= old('title') ?>" required class="form-control" >
+                                <input id="title" name="title" type="text" value="<?= Session::old('title') ?>" required class="form-control" >
                                 <p class="help-block text-danger small"><?= ( $errors['title'] ) ?? '' ?></p>
                             </div>
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label for="description">Description:</label>
-                                <textarea name="description" id="description"  class="form-control" required ><?= old('description') ?></textarea>
+                                <textarea name="description" id="description"  class="form-control" required ><?= Session::old('description') ?></textarea>
                                 <p class="help-block text-danger small"><?= ( $errors['description'] ) ?? '' ?></p>
                             </div>
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label for="embed">embed url:</label>
-                                <input id="embed" name="embed" type="text" value="<?= old('embed' , true ) ?>" required class="form-control" >
+                                <input id="embed" name="embed" type="text" value="<?= Session::old('embed' , true ) ?>" required class="form-control" >
                                 <p class="help-block text-danger small"><?= ( $errors['embed'] ) ?? '' ?></p>
                             </div>
                         </div>

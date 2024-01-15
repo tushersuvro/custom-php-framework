@@ -6,8 +6,7 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-set_old( 'name' , $name );
-set_old( 'email' , $email );
+Session::flash('old', [ 'name' => $name, 'email' => $email ]);
 
 $errors = [];
 
@@ -25,7 +24,7 @@ if ( !Validator::string( $password,  3, 255) ) {
 
 if (! empty($errors)) {
 
-    $_SESSION['flash']['errors'] = $errors;
+    Session::flash('errors', $errors);
 
     redirect('/register');
 }
@@ -34,7 +33,7 @@ $user = $db->query('select * from users where email = ?', [ $email ] )->find();
 
 if( $user ) {
     $errors['email'] = 'Email already exists in database.';
-    $_SESSION['flash']['errors'] = $errors;
+    Session::flash('errors', $errors);
 
     redirect('/register');
 }

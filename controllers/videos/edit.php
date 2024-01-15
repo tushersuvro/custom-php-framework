@@ -13,6 +13,6 @@ $video = $db->query('select * from videos where id = ? ', [ $_GET['id'] ])->find
 
 authorize( $video['user_id'] == $_SESSION['user']['id'] );
 
-$errors = flashed_errors();
+$errors = Session::get('errors');
 
 view('videos/edit' , compact(  'video' , 'errors' ) );

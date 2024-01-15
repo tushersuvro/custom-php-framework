@@ -17,6 +17,5 @@ require BASE_PATH . 'Core/Router.php';
 require 'router.php';
 
 
-
-unset($_SESSION['flash']);
+Session::unflash();
 
