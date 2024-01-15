@@ -45,7 +45,7 @@ class Router {
     {
         foreach (self::$routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
-                return require BASE_PATH . 'controllers/' .$route['controller'].'.php';
+                return require BASE_PATH . 'Http/Controllers/' .$route['controller'].'.php';
             }
         }
 
@@ -56,7 +56,7 @@ class Router {
     {
         http_response_code($code);
 
-        require BASE_PATH . "views/{$code}.php";
+        require BASE_PATH . "Views/{$code}.php";
 
         die();
     }

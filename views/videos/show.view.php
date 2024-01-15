@@ -10,7 +10,7 @@
             <div class="col-md-7"><?= $video['embed'] ?? '<img class="img-fluid" src="https://via.placeholder.com/750x500" alt="..." />' ?></div>
             <div class="col-md-5">
                 <h3 class="my-3"><?= $video['title'] ?></h3>
-                <p><?= $video['description'] ?></p>
+                <p><?= htmlspecialchars($video['description']) ?></p>
                 <a class="btn btn-primary btn-sm float-left" href="/video/edit?id=<?= $video['id'] ?>">Edit</a> &nbsp;
                 <form method="POST" action="/video" class="float-left ml-2">
                     <input type="hidden" name="_method" value="DELETE">
