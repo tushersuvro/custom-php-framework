@@ -51,6 +51,7 @@ $_SESSION['user'] = [
     'email' => $email,
     'name' => $name
 ];
+Session::flash( 'success', 'Registration is successful' );
 
 // redirect user
 redirect('/videos');

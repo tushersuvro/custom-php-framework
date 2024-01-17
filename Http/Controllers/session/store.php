@@ -37,6 +37,7 @@ if ($user) {
             'email' => $user['email'],
             'name' => $user['name']
         ];
+        Session::flash( 'success', 'Login is successful' );
 
         redirect('/videos');
     }

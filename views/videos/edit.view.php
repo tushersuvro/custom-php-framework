@@ -9,6 +9,11 @@
             <!-- In order to set the email address and subject line for the contact form go to the assets/mail/contact_me.php file.-->
             <div class="row justify-content-center">
                 <div class="col-lg-8">
+                    <?php if( $success ): ?>
+                        <div class="alert alert-success">
+                            <strong>Success!</strong> <?= $success ?>
+                        </div>
+                    <?php endif; ?>
                     <!-- Page Heading/Breadcrumbs-->
                     <h1 class="mb-4">
                         Edit Video

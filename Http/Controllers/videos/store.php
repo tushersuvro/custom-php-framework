@@ -20,7 +20,7 @@ if ( !Validator::string( $title,  1, 255) ) {
     $errors['title'] = 'Title is required';
 }
 
-if ( !Validator::string( $description,  50, 255) ) {
+if ( !Validator::string( $description,  50) ) {
     $errors['description'] = 'Description needs to be at least 50 characters long';
 }
 
@@ -38,6 +38,7 @@ if (! empty($errors)) {
 $db->query('INSERT INTO videos( user_id, title, description, embed ) VALUES( ? , ?, ?, ? )',
     [ $_SESSION['user']['id'] , $title, $description, $embed ]
 );
+Session::flash( 'success', 'Video is saved' );
 
 redirect('/videos');
     

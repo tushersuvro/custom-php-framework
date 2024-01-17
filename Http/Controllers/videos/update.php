@@ -23,7 +23,7 @@ if ( !Validator::string( $title,  1, 255) ) {
     $errors['title'] = 'Title is required';
 }
 
-if ( !Validator::string( $description,  50, 255) ) {
+if ( !Validator::string( $description,  50) ) {
     $errors['description'] = 'Description needs to be at least 50 characters long';
 }
 
@@ -40,6 +40,7 @@ if (! empty($errors)) {
 $db->query('UPDATE videos set title = ?, description = ? , embed = ? where id = ? and user_id = ?', [
     $_POST['title'], $_POST['description'], $_POST['embed'], $_POST['id'] , $_SESSION['user']['id']
 ]);
+Session::flash( 'success', 'Video is edited' );
 
 redirect('/video/edit?id='.$video['id']);
     
