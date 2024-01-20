@@ -17,6 +17,8 @@ spl_autoload_register(function ($class) {
     require  BASE_PATH . $class . '.php';
 });
 
+require 'bootstrap.php';
+
 require 'router.php';
 
 Session::unflash();
