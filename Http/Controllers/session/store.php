@@ -1,28 +1,20 @@
 <?php
 
-use Core\Database;
+use Core\App;
 use Core\Session;
-use Core\Validator;
+use Http\Forms\LoginForm;
 
-$db = new Database();
+$db = App::resolve('Core\Database');
 
 $email = $_POST['email'];
 $password = $_POST['password'];
 
 Session::flash('old', [ 'email' => $email ]);
 
-$errors = [];
+$form = new LoginForm( $email , $password );
 
-if ( !Validator::email($email) ) {
-    $errors['email'] = 'Valid Email is required';
-}
-
-if ( !Validator::string( $password,  3, 255) ) {
-    $errors['password'] = 'Password needs to be at least three characters long';
-}
-
-if (! empty($errors)) {
-    Session::flash('errors', $errors );
+if( !$form->validate() ) {
+    Session::flash('errors', $form->errors() );
 
     redirect('/login');
 }
@@ -43,8 +35,6 @@ if ($user) {
     }
 }
 
-
-$errors['email'] = 'No matching account found for that email address and password.';
-$_SESSION['flash']['errors'] = $errors;
+Session::flash('errors', [ 'email' => 'No matching account found for that email address and password.' ]);
 
 redirect('/login');
