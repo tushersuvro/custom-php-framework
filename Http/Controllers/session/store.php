@@ -1,10 +1,8 @@
 <?php
 
-use Core\App;
+use Core\Authenticator;
 use Core\Session;
 use Http\Forms\LoginForm;
-
-$db = App::resolve('Core\Database');
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -13,28 +11,17 @@ Session::flash('old', [ 'email' => $email ]);
 
 $form = new LoginForm( $email , $password );
 
-if( !$form->validate() ) {
-    Session::flash('errors', $form->errors() );
+if( $form->validate() ) {
 
-    redirect('/login');
-}
+    $auth = new Authenticator;
 
-$user = $db->query('select * from users where email = ? ', [ $email ])->find(); //dd($user);
-
-if ($user) {
-    if ( password_verify( $password, $user['password'] ) ) {
-
-        $_SESSION['user'] = [
-            'id' => $user['id'],
-            'email' => $user['email'],
-            'name' => $user['name']
-        ];
-        Session::flash( 'success', 'Login is successful' );
-
+    if( $auth->attempt( $email , $password )) {
+        Session::flash('success', 'Login is successful');
         redirect('/videos');
     }
+
+    $form->addError('email', 'Email or Password is incorrect');
 }
 
-Session::flash('errors', [ 'email' => 'No matching account found for that email address and password.' ]);
-
+Session::flash('errors', $form->errors() );
 redirect('/login');

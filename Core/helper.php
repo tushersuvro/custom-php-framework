@@ -23,14 +23,6 @@ function abort( $code = 404) {
     exit;
 }
 
-function routeToController( $uri , $routes ) {
-    if( array_key_exists( $uri , $routes) ) {
-        require BASE_PATH . 'controllers/' .$routes[$uri].'.php';
-    } else {
-        abort();
-    }
-}
-
 function view( $file, $variables = [] ) {
     extract($variables );
     require BASE_PATH . 'views/' .$file.'.view.php';
