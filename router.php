@@ -1,7 +1,10 @@
 <?php
 
 //define function along with a check for a specific constant in PHP files
+
 use Core\Router;
+use Core\Session;
+use Core\ValidationException;
 
 defined('BASE_PATH') OR exit('No direct script access allowed');
 
@@ -33,4 +36,11 @@ Router::delete('/logout', 'session/destroy');
 
 
 
-Router::route( $uri , $_POST['_method'] ?? $_SERVER['REQUEST_METHOD']);
+try {
+    Router::route( $uri , $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'] );
+} catch (ValidationException $exception) {
+    Session::flash('errors', $exception->errors);
+    Session::flash('old', $exception->old);
+
+    redirect(Router::previousUrl());
+}

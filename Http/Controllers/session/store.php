@@ -9,19 +9,15 @@ $password = $_POST['password'];
 
 Session::flash('old', [ 'email' => $email ]);
 
-$form = new LoginForm( $email , $password );
+$form = LoginForm::validate([
+    'email' => $email,
+    'password' => $password
+]);
 
-if( $form->validate() ) {
 
-    $auth = new Authenticator;
-
-    if( $auth->attempt( $email , $password )) {
-        Session::flash('success', 'Login is successful');
-        redirect('/videos');
-    }
-
-    $form->addError('email', 'Email or Password is incorrect');
+if( !(new Authenticator)->attempt( $email , $password )) {
+    $form->addError('email', 'Email or Password is incorrect')->throw();
 }
 
-Session::flash('errors', $form->errors() );
-redirect('/login');
+Session::flash('success', 'Login is successful');
+redirect('/videos');
