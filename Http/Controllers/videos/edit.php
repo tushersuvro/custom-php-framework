@@ -1,10 +1,10 @@
 <?php
 
 //dd('inside edit');
-use Core\Database;
+use Core\App;
 use Core\Session;
 
-$db = new Database();
+$db = App::resolve('Core\Database');
 
 authorize( isset($_SESSION['user']) , 401 );
 

@@ -37,7 +37,9 @@ Router::delete('/logout', 'session/destroy');
 
 
 try {
-    Router::route( $uri , $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'] );
+    $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'] ;
+//    dd($method);
+    Router::route( $uri , $method );
 } catch (ValidationException $exception) {
     Session::flash('errors', $exception->errors);
     Session::flash('old', $exception->old);

@@ -50,7 +50,7 @@ class Router {
     public static function route($uri, $method)
     {   //dd($this->getRoutes());
         // how can I get the attributes routes value from this class
-//        dd($this->routes);
+//        dd($method);
 
         foreach (self::$routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {

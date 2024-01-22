@@ -2,14 +2,14 @@
 
 use Core\Authenticator;
 use Core\Session;
-use Http\Forms\LoginForm;
+use Http\Forms\FormValidator;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
 
 Session::flash('old', [ 'email' => $email ]);
 
-$form = LoginForm::validate([
+$form = FormValidator::validate([
     'email' => $email,
     'password' => $password
 ]);
