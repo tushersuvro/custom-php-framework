@@ -10,32 +10,28 @@ class FormValidator
     private $errors = [];
     public $attributes = [];
 
-    function __construct( $attributes ) {
 
+    function __construct($attributes) {
         $this->attributes = $attributes;
 
-        if ( isset($this->attributes['email']) && !Validator::email( $this->attributes['email'] ) ) {
-            $this->errors['email'] = 'Valid Email is required';
-        }
+        $validationRules = [
+            'email'       => ['validator' => 'email', 'message' => 'Valid Email is required'],
+            'password'    => ['validator' => 'string', 'args' => [3, 255], 'message' => 'Password needs to be at least three characters long'],
+            'name'        => ['validator' => 'string', 'args' => [1, 255], 'message' => 'Name is required'],
+            'title'       => ['validator' => 'string', 'args' => [1, 255], 'message' => 'Title is required'],
+            'description' => ['validator' => 'string', 'args' => [50], 'message' => 'Description needs to be at least 50 characters long'],
+            'embed'       => ['validator' => 'isValidEmbed', 'message' => 'Embed needs to be valid'],
+        ];
 
-        if ( isset($this->attributes['password']) && !Validator::string( $this->attributes['password'],  3, 255) ) {
-            $this->errors['password'] = 'Password needs to be at least three characters long';
-        }
-
-        if ( isset($this->attributes['name']) && !Validator::string( $this->attributes['name'],  1, 255) ) {
-            $this->errors['name'] = 'Name is required';
-        }
-
-        if ( isset($this->attributes['title']) &&  !Validator::string(  $this->attributes['title'],  1, 255) ) {
-            $this->errors['title'] = 'Title is required';
-        }
-
-        if ( isset($this->attributes['description']) && !Validator::string(  $this->attributes['description'],  50) ) {
-            $this->errors['description'] = 'Description needs to be at least 50 characters long';
-        }
-
-        if ( isset($this->attributes['embed']) && !Validator::isValidEmbed(  $this->attributes['embed']) ) {
-            $this->errors['embed'] = 'Embed needs to be valid';
+        foreach ($validationRules as $attribute => $rule) {
+            if (isset($this->attributes[$attribute])) {
+                $isValid = call_user_func_array( [  'Core\Validator', $rule['validator']],
+                                                    array_merge([$this->attributes[$attribute]], $rule['args'] ?? [] )
+                                                );
+                if (!$isValid) {
+                    $this->errors[$attribute] = $rule['message'];
+                }
+            }
         }
     }
 
