@@ -8,7 +8,8 @@ $db = App::resolve('Core\Database');
 
 $video = $db->query('select * from videos where id = ?', [ $_POST['id'] ] )->findOrFail();
 
-authorize( isset($_SESSION['user']) && ( $video['user_id'] == $_SESSION['user']['id'] )  );
+//authorize( isset($_SESSION['user']) && ( $video['user_id'] == $_SESSION['user']['id'] )  );
+authorize( ( $video['user_id'] == $_SESSION['user']['id'] )  );
 
 //dd($video);
 

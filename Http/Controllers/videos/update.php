@@ -15,7 +15,8 @@ $embed = $_POST['embed'];
 // find the corresponding video
 $video = $db->query('select * from videos where id = ?', [ $_POST['id'] ] )->findOrFail();
 
-authorize(isset($_SESSION['user']) && ( (int)$video['user_id'] === (int)$_SESSION['user']['id']) );
+//authorize(isset($_SESSION['user']) && ( (int)$video['user_id'] === (int)$_SESSION['user']['id']) );
+authorize(( (int)$video['user_id'] === (int)$_SESSION['user']['id']) );
 
 FormValidator::validate([
     'embed' => $embed,

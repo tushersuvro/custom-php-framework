@@ -5,6 +5,11 @@
 <!-- Page Content-->
 <section class="py-5">
     <div class="container">
+        <?php if( $success ): ?>
+            <div class="alert alert-success">
+                <strong>Success!</strong> <?= $success ?>
+            </div>
+        <?php endif; ?>
         <h1 class="mb-4"><?= $header ?></h1>
     </div>
 </section>

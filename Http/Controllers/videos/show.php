@@ -10,7 +10,7 @@ use Core\App;
 
 $db = App::resolve('Core\Database');
 
-authorize( isset($_SESSION['user']) , 401 );
+//authorize( isset($_SESSION['user']) , 401 );
 
 if (! isset( $_GET['id'] )) {
     abort();

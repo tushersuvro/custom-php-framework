@@ -6,7 +6,7 @@ use Core\Session;
 //$db = App::container()->get('Core\Database');
 $db = App::resolve('Core\Database');
 
-authorize( isset($_SESSION['user']) , 401 );
+//authorize( isset($_SESSION['user']) , 401 );
 
 $videos = $db->query( "select * from videos where user_id = ? order by id desc" , [ $_SESSION['user']['id'] ] )->get();
 

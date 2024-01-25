@@ -2,26 +2,29 @@
 
 namespace Core;
 
+use Core\Middleware\Middleware;
+
 defined('BASE_PATH') OR exit('No direct script access allowed');
 
 class Router {
 
     protected static $routes = [];
+    protected static $middleware;
 
 
-
-    public static function add($method, $uri, $controller)
+    public static function add($method, $uri, $controller )
     {
         self::$routes[] = [
             'uri' => $uri,
             'controller' => $controller,
-            'method' => $method
-        ]; //dd($this->routes);
+            'method' => $method,
+            'middleware' => self::$middleware
+        ];
     }
 
     public static function get($uri, $controller)
     {
-        self::add('GET', $uri, $controller);
+        self::add('GET', $uri, $controller );
     }
 
     public static function post($uri, $controller)
@@ -47,18 +50,31 @@ class Router {
     // iterates over the defined routes and matches the requested URI and HTTP method.
     // If a match is found, it includes the corresponding controller file
 
-    public static function route($uri, $method)
+    public static function handle($uri, $method)
     {   //dd($this->getRoutes());
         // how can I get the attributes routes value from this class
-//        dd($method);
 
         foreach (self::$routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
+
+                Middleware::resolve($route['middleware']);
+
                 return require BASE_PATH . 'Http/Controllers/' .$route['controller'].'.php';
             }
         }
 
         self::abort();
+    }
+
+    public static function group($middleware, $callback)
+    {
+        $previousMiddleware = self::$middleware; // Saving the current middleware
+        self::$middleware = $middleware['middleware']; // Setting the new middleware for the group
+
+        $callback(); // executing callback
+
+        // Restoring the previous middleware after executing the callback
+        self::$middleware = $previousMiddleware;
     }
 
     public static function abort($code = 404)
@@ -75,3 +91,5 @@ class Router {
         return $_SERVER['HTTP_REFERER'];
     }
 }
+
+
