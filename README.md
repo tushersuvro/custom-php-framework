@@ -23,7 +23,7 @@ Other assets used:
 
 ## How to use
 
-- In Progress
+- Document root is inside public folder so virtual host needs to be created accordingly
 
 ## License
 
