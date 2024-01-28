@@ -4,7 +4,7 @@
 
 use Core\App;
 use Core\Session;
-use Http\Forms\FormValidator;
+use App\Http\Forms\FormValidator;
 
 $db = App::resolve('Core\Database');
 
@@ -30,4 +30,4 @@ $db->query('UPDATE videos set title = ?, description = ? , embed = ? where id = 
 Session::flash( 'success', 'Video is edited' );
 
 redirect('/video/edit?id='.$video['id']);
-    
+

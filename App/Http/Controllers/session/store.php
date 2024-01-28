@@ -2,7 +2,7 @@
 
 use Core\Authenticator;
 use Core\Session;
-use Http\Forms\FormValidator;
+use App\Http\Forms\FormValidator;
 
 $email = $_POST['email'];
 $password = $_POST['password'];

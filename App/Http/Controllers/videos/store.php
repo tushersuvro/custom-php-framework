@@ -4,7 +4,7 @@
 
 use Core\App;
 use Core\Session;
-use Http\Forms\FormValidator;
+use App\Http\Forms\FormValidator;
 
 $db = App::resolve('Core\Database');
 
