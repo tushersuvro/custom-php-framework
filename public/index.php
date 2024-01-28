@@ -10,16 +10,18 @@ session_start();
 const BASE_PATH = __DIR__.'/../';
 const APP_PATH = __DIR__.'/../App/';
 
-require __DIR__ .'/../Core/helper.php';
+require BASE_PATH .'Core/helper.php';
+
+require BASE_PATH .'vendor/autoload.php';
 
 // automatically loading class when instantiated
-spl_autoload_register(function ($class) {
-    require  BASE_PATH . $class . '.php';
-});
+//spl_autoload_register(function ($class) {
+//    require  BASE_PATH . $class . '.php';
+//});
 
-require __DIR__ .'/../bootstrap.php';
+require BASE_PATH .'bootstrap.php';
 
-require __DIR__ .'/../router.php';
+require BASE_PATH .'router.php';
 
 Session::unflash();
 
