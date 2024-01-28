@@ -1,6 +1,6 @@
 
-<?php require BASE_PATH . 'views/partials/header.php' ?>
-<?php require BASE_PATH . 'views/partials/nav.php' ?>
+<?php require APP_PATH . 'views/partials/header.php' ?>
+<?php require APP_PATH . 'views/partials/nav.php' ?>
 
 <!-- Page Content-->
 <section class="py-5">
@@ -22,4 +22,4 @@
     </div>
 </section>
 
-<?php require BASE_PATH . 'views/partials/footer.php' ?>
+<?php require APP_PATH . 'views/partials/footer.php' ?>

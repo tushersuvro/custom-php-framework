@@ -4,7 +4,7 @@ namespace Core;
 
 use Core\Middleware\Middleware;
 
-defined('BASE_PATH') OR exit('No direct script access allowed');
+defined('APP_PATH') OR exit('No direct script access allowed');
 
 class Router {
 
@@ -59,7 +59,7 @@ class Router {
 
                 Middleware::resolve($route['middleware']);
 
-                return require BASE_PATH . 'Http/Controllers/' .$route['controller'].'.php';
+                return require APP_PATH . 'Http/Controllers/' .$route['controller'].'.php';
             }
         }
 
@@ -81,7 +81,7 @@ class Router {
     {
         http_response_code($code);
 
-        require BASE_PATH . "Views/{$code}.php";
+        require APP_PATH . "Views/{$code}.php";
 
         die();
     }

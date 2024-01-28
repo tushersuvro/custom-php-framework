@@ -6,7 +6,7 @@ use Core\Router;
 use Core\Session;
 use Core\ValidationException;
 
-defined('BASE_PATH') OR exit('No direct script access allowed');
+defined('APP_PATH') OR exit('No direct script access allowed');
 
 //
 Router::get('/', 'home');

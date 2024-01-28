@@ -1,6 +1,6 @@
 <?php
 
-defined('BASE_PATH') OR exit('No direct script access allowed');
+defined('APP_PATH') OR exit('No direct script access allowed');
 
 function dd( $value ) {
     echo '<pre>';
@@ -19,13 +19,13 @@ function isCurrentURI( $values ) {
 
 function abort( $code = 404) {
     http_response_code($code);
-    require BASE_PATH . "views/{$code}.php";
+    require APP_PATH . "views/{$code}.php";
     exit;
 }
 
 function view( $file, $variables = [] ) {
     extract($variables );
-    require BASE_PATH . 'views/' .$file.'.view.php';
+    require APP_PATH . 'views/' .$file.'.view.php';
 }
 
 function authorize( $condition , $code = 403 ) {
