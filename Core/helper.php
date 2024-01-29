@@ -25,7 +25,7 @@ function abort( $code = 404) {
 
 function view( $file, $variables = [] ) {
     extract($variables );
-    require APP_PATH . 'views/' .$file.'.view.php';
+    require VIEW_PATH . $file.'.view.php';
 }
 
 function authorize( $condition , $code = 403 ) {

@@ -1,7 +1,7 @@
 <?php use Core\Session;
 
-require APP_PATH . 'views/partials/header.php' ?>
-<?php require APP_PATH . 'views/partials/nav.php' ?>
+require VIEW_PATH . 'partials/header.php' ?>
+<?php require VIEW_PATH . 'partials/nav.php' ?>
 
 <!-- Page Content-->
 <section class="py-5">
@@ -46,4 +46,4 @@ require APP_PATH . 'views/partials/header.php' ?>
     </div>
 </section>
 
-<?php require APP_PATH . 'views/partials/footer.php' ?>
+<?php require VIEW_PATH . 'partials/footer.php' ?>

@@ -1,5 +1,5 @@
-<?php require APP_PATH . 'views/partials/header.php' ?>
-<?php require APP_PATH . 'views/partials/nav.php' ?>
+<?php require VIEW_PATH . 'partials/header.php' ?>
+<?php require VIEW_PATH . 'partials/nav.php' ?>
 
 
 <!-- Page Content-->
@@ -10,4 +10,4 @@
     </div>
 </section>
 
-<?php require APP_PATH . 'views/partials/footer.php' ?>
+<?php require VIEW_PATH . 'partials/footer.php' ?>

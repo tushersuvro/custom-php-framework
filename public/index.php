@@ -9,6 +9,7 @@ session_start();
 
 const BASE_PATH = __DIR__.'/../';
 const APP_PATH = __DIR__.'/../App/';
+const VIEW_PATH = __DIR__.'/../App/Views/';
 
 require BASE_PATH .'Core/helper.php';
 
