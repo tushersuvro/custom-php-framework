@@ -28,6 +28,9 @@ require VIEW_PATH . 'partials/header.php' ?>
                 </div>
             </div>
             <?php endforeach; ?>
+            <div class="col-lg-12 d-flex justify-content-center">
+            <?= $pages->page_links() ?>
+            </div>
         </div>
     </div>
 </section>

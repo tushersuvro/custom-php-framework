@@ -11,5 +11,6 @@
     <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/assets/css/styles.css" rel="stylesheet" />
+    <link href="/assets/css/custom-styles.css" rel="stylesheet" />
 </head>
 <body>
